@@ -51,14 +51,20 @@ def isPalindrome(n: int) -> bool:
 # isPalindrome(121)
 def armstrongnum(n:int):
      res=0
+     num=n  
+     count=0
+     while num>0:
+        num=int(num/10)
+        count+=1
      num=n
      while n>0:
           ls=int(n%10)
           n=int(n/10)
-          res=res+ls**3
+          res=res+(ls**count)
      if res==num:
-          print("armstrong number")
+          print("armstrong number") 
      else:
           print("Not armstrong number")
      
 armstrongnum(1634)
+#print(int(44**(1/2)))
