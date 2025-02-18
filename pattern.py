@@ -129,24 +129,15 @@ def printn(n,num=1):
             return
 #printn(5)
 def sumoffirstn3(n,num=1,res=0):
-      if n>0:
-            res=res+(num**3)
-            return sumoffirstn3(n-1,num+1,res)
+      if n==0: return 0
       else:
-            return res
-            
+        return n**3+sumoffirstn3(n-1)           
 #sumoffirstn3(5)
 
 def factorial(n,num=1):
-      if n ==1:
-            print(1)
-            return
+      if num>=n:
+            return num
       else:
-            if num<=n:
-                  print(num,end=" ")
-                  num=num*(num+1)
-                  factorial(n,num)
-                  
-            else:
-                  return
-factorial(250)
+            print(num,end=" ")
+            return num*factorial(n,num+1)
+print(factorial(3))
