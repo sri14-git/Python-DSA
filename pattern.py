@@ -112,4 +112,41 @@ def incnumbertriangle(n:int):
                   print(res,end="")
                   res+=1
             print()
-incnumbertriangle(4)
+#incnumbertriangle(4)
+########################################-------RECURSION-------######################################
+def printNos(n):
+      if n==0:
+            return
+      print(n,end=" ")
+      printNos(n-1)
+        # Code here
+#printNos(5)
+def printn(n,num=1):
+      if num<=n:
+            print(num,end=" ")
+            printn(n,num+1)
+      else:
+            return
+#printn(5)
+def sumoffirstn3(n,num=1,res=0):
+      if n>0:
+            res=res+(num**3)
+            return sumoffirstn3(n-1,num+1,res)
+      else:
+            return res
+            
+#sumoffirstn3(5)
+
+def factorial(n,num=1):
+      if n ==1:
+            print(1)
+            return
+      else:
+            if num<=n:
+                  print(num,end=" ")
+                  num=num*(num+1)
+                  factorial(n,num)
+                  
+            else:
+                  return
+factorial(250)
