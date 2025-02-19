@@ -35,23 +35,22 @@ def reverseArr(arr,n=0):
 #print(reverseArr([1,2,3,4,5]))
 def removenonalpha(S:str):
     i=0
-    while True:
-        if not S[i].isalnum():
-            S=S.replace(S[i],"")
-        if i>=len(S)-1:
-            break
-        i+=1
+    while i < len(S):
+            if not S[i].isalnum():
+                S = S.replace(S[i], "")
+                continue
+            i += 1
     return S
 def isPalindrome(S: str,n=0):
     i=0
     if not (S.isalnum() and S.islower()):
-        while i<len(S):
-            S=S.lower()
+        i=0
+        S=S.lower()
+        while i < len(S):
             if not S[i].isalnum():
-                if S[i]=="\"":
-                    S=S.replace(S[i],"")
-                S=S.replace(S[i],"")
-            i+=1
+                S = S.replace(S[i], "")
+                continue
+            i += 1
     l =len(S)
     if n>=l //2 or l==1:
          return True
@@ -60,6 +59,24 @@ def isPalindrome(S: str,n=0):
     else: 
          return False
 
-print(isPalindrome("Nella's simple hymn: \"I attain my help, Miss Allen.\""))
-    
-     
+#print(isPalindrome("Nella's simple hymn: \"I attain my help, Miss Allen.\""))
+def fib(n,fn=0):
+    if n==1:
+          return 1
+    if n==0:
+         return 0
+    else:
+         fn=fib(n-1,fn)+fib(n-2,fn)
+         return fn
+#print(fib(512))
+################################################
+def fib2(n: int) -> int:
+        if n <= 1:
+            return n
+        a, b = 0, 1
+        for i in range(2, n + 1):
+            print("****",i)
+            a, b = b, a + b
+        return b
+#print(fib2(2))
+#################################################
