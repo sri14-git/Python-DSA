@@ -25,4 +25,41 @@ def factorial(n,num=1):
       else:
             print(num,end=" ")
             return num*factorial(n,num+1)
-print(factorial(3))
+#print(factorial(3))
+def reverseArr(arr,n=0):
+    l=len(arr)
+    if n>=l//2:
+         return arr
+    arr[n],arr[l-n-1]=arr[l-n-1],arr[n]
+    return reverseArr(arr,n+1)
+#print(reverseArr([1,2,3,4,5]))
+def removenonalpha(S:str):
+    i=0
+    while True:
+        if not S[i].isalnum():
+            S=S.replace(S[i],"")
+        if i>=len(S)-1:
+            break
+        i+=1
+    return S
+def isPalindrome(S: str,n=0):
+    i=0
+    if not (S.isalnum() and S.islower()):
+        while i<len(S):
+            S=S.lower()
+            if not S[i].isalnum():
+                if S[i]=="\"":
+                    S=S.replace(S[i],"")
+                S=S.replace(S[i],"")
+            i+=1
+    l =len(S)
+    if n>=l //2 or l==1:
+         return True
+    if S[n]==S[l-n-1]:
+         return isPalindrome(S,n+1)
+    else: 
+         return False
+
+print(isPalindrome("Nella's simple hymn: \"I attain my help, Miss Allen.\""))
+    
+     
