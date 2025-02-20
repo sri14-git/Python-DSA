@@ -18,16 +18,27 @@
 # 
 # 
 #         ###leetcode
-# def topKFrequent(nums, k: int):
-#         dic={nums[i]:0 for i in range(len(nums))}
-#         res=[]
-#         for i in nums:
-#             dic[i]+=1
-#         if len(nums)==k:
-#             nums=set(nums)
-#             return list(nums)
-#         else:
-            
-#         return res
-arr=[1,2,33,4,5]
-dic={i:k for i in arr and for k in len(arr)-1 k+=1}
+from operator import le
+
+
+def topKFrequent(nums, k: int):
+    dic={i:0 for i in nums }
+    freq=[[] for i in range(len(nums)+1)]
+    for i in nums:
+        dic[i]+=1
+    for n,c in dic.items():
+        freq[c].append(n)
+    res=[]
+    for i in range(len(freq)-1,0,-1):
+        if len(res)<k:
+            for x in freq[i]:
+                res.append(x)
+        
+    return res
+
+        
+
+
+
+
+print(topKFrequent([1,2,2,3,3,3],2))

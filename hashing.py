@@ -23,3 +23,11 @@ def grpanagrams(arr):
                 res.append(dic.get(i))
     return res
 
+def twosums(nums,target):
+        dic={}
+        for i,n in enumerate(nums):
+            diff =target-n
+            if diff in dic:
+                return [dic[diff],i]
+            dic[n]=i
+        return  
