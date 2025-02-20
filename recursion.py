@@ -60,15 +60,15 @@ def isPalindrome(S: str,n=0):
          return False
 
 #print(isPalindrome("Nella's simple hymn: \"I attain my help, Miss Allen.\""))
-def fib(n,fn=0):
+def fib(n):
     if n==1:
           return 1
     if n==0:
          return 0
     else:
-         fn=fib(n-1,fn)+fib(n-2,fn)
-         return fn
-#print(fib(512))
+         return fib(n-1)+fib(n-2)
+           
+print(fib(3))
 ################################################
 def fib2(n: int) -> int:
         if n <= 1:
