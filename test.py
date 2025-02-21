@@ -18,8 +18,10 @@
 # 
 # 
 #         ###leetcode
-from operator import le
 
+arr=[1,2,3,4,5]
+for i,n in enumerate(arr):
+    print(i,n)
 
 def topKFrequent(nums, k: int):
     dic={i:0 for i in nums }

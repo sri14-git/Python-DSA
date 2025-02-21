@@ -31,3 +31,17 @@ def twosums(nums,target):
                 return [dic[diff],i]
             dic[n]=i
         return  
+def topKFrequent(nums, k: int):
+    dic={i:0 for i in nums }
+    freq=[[] for i in range(len(nums)+1)]
+    for i in nums:
+        dic[i]+=1
+    for n,c in dic.items():
+        freq[c].append(n)
+    res=[]
+    for i in range(len(freq)-1,0,-1):
+        if len(res)<k:
+            for x in freq[i]:
+                res.append(x)
+        
+    return res
