@@ -14,9 +14,9 @@ def selectionsort(arr):
 # 
 # 
 def bubblesort(arr):
-    n=len(arr) #6 0-4
+    n=len(arr)
     for i in range(n-1,0,-1):
-        for j in range(0,i): # 0- 4+1
+        for j in range(0,i):
             if arr[j]>arr[j+1]:
                 temp=arr[j]
                 arr[j]=arr[j+1]
