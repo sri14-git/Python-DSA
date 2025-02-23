@@ -7,7 +7,7 @@ def selectionsort(arr):
                 temp=arr[i]
                 arr[i]=arr[j]
                 arr[j]=temp
-                min=arr[j]
+                
             else: continue
     return(arr)
 #
@@ -23,4 +23,12 @@ def bubblesort(arr):
                 arr[j+1]=temp
             else:continue
     return arr
-print(bubblesort([13,46,24,52,20,9]))
+def insertionsort(arr):
+    for i in range(len(arr)):
+        j=i
+        while j>0 and arr[j-1]> arr[j]:
+            arr[j-1],arr[j]=arr[j],arr[j-1]
+            j-=1
+
+
+print(insertionsort([13,46,24,52,20,9]))
