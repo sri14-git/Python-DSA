@@ -31,4 +31,4 @@ def insertionsort(arr):
             j-=1
     
 
-print(insertionsort([13,46,24,52,20,9]))
+print(selectionsort([13,46,24,52,20,9]))
