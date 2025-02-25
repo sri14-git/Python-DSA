@@ -17,7 +17,7 @@ def extractdigits(n:int):
     print(arr[::-1])
     print("no of digit using log",count)
     print("no of digit without log",cn)
-def addDigits(n: int) -> int:
+def addDigits(n: int):
     sum=0
     while n>0:
           if n%10 !=0:

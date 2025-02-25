@@ -68,7 +68,7 @@ def fib(n):
     else:
          return fib(n-1)+fib(n-2)
            
-print(fib(3))
+#print(fib(3))
 ################################################
 def fib2(n: int) -> int:
         if n <= 1:
@@ -80,3 +80,49 @@ def fib2(n: int) -> int:
         return b
 #print(fib2(2))
 #################################################
+def isorted(arr,l,r):
+    if r>=len(arr):
+        return True
+    if r<len(arr):
+        if arr[l]<arr[r]:
+            return isorted(arr,l+1,r+1)
+        else:
+             return False
+#print(isorted([1,3,2,5,6],0,1))
+def linearsearch(arr,l,target):
+     if l==len(arr):
+          return False
+     if arr[l]==target:
+          return l
+     else:
+          return linearsearch(arr,l+1,target)
+#print(linearsearch([1,2,3,4,5,6],0,7))
+#### using an eztra variable
+def removechr(s,l,n,target):
+     res=""
+     if l==n+1:
+          ans=res
+     if l<=n:
+        if not s[l]==target:
+            res+=(s[l])
+            ans=removechr(s,l+1,n,target)
+        else:
+            ans=removechr(s,l+1,n,target)
+     res+=ans
+     return res
+s="hello world"
+print(removechr(s,0,len(s)-1,"l"))
+
+##### without extra variable
+def removechr1(s,l,n,target):
+     res=""
+     if l==n+1:
+          return res
+     if l<=n:
+        if not s[l]==target:
+            res+=(s[l])
+            return res+removechr(s,l+1,n,target)
+        else:
+            return res+removechr(s,l+1,n,target)
+s="hello world"
+print(removechr(s,0,len(s)-1,"l"))
