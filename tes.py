@@ -1,13 +1,24 @@
-def subset(arr,l,res=[]):
-    if l>len(arr)-1:
-        return res
-    res.append(arr[l])
-    left=subset(arr,l+1,res)
-    res.pop()
-    right=subset(arr,l+1,res)
-    res.append(left[:])
-    res.append(right[:])
-    return res
+def partition(arr,low,high):
+    i=low
+    j=high
+    pivot=low
+    while(i<j):
+        while(arr[i]<=arr[pivot] and i<high):
+            i+=1
+        while (arr[j]>arr[pivot] and j>low):
+            j-=1
+        if i<j:
+            arr[j],arr[i]=arr[i],arr[j]
+    arr[pivot],arr[j]=arr[j],arr[pivot]
+    return j
 
-arr=[1,2,3,4]
-print(subset(arr,0))
+def qs(arr,low,high):
+    if low<high:
+        pivot= partition(arr,low,high)
+        qs(arr,low,pivot-1)
+        qs(arr,pivot+1,high)
+    return arr
+arr=[13,46,24,52,20,9]
+
+
+print(qs(arr,0,len(arr)-1))
