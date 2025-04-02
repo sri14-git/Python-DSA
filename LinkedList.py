@@ -18,14 +18,19 @@ class LinkedList:
             self.addElementFirst(value)  # Update head and tail to point to the new node
         self.tail = node
         self.size+=1
-    def printelements(self):
+    def printelements(self,index=None):
         temp=self.head
-        while temp:
-            print(temp.val,end="->")
-            temp=temp.next
-        print("END")
-    def deleteFirst(self):
-        if self.head is not None:
+        if index is not None:
+            for i in range(index):
+                temp=temp.next
+            print(temp.val)
+        else:
+            while temp:
+                print(temp.val,end="->")
+                temp=temp.next
+            print("END")
+    def deleteFirst(self): 
+        if self.head is not None: # to make sure there is elements
             val=self.head.val
             self.head=self.head.next
             self.size-=1
@@ -40,12 +45,31 @@ class LinkedList:
         return temp
 
     def deleteLast(self):
-        if self.head is not None:
+        if self.head is not None: # to make sure there is elements
             prevlast=self.getelements(self.size-2)
             prevlast.next=None
             self.tail=prevlast
             self.size-=1
-
+        else:
+            print("no elements")
+        if self.head == self.tail : # if only one element is present
+            self.head=None
+            self.tail=None
+            self.size-=1
+            return
+    def deleteIndex(self,index):
+        prevcurr=self.getelements(index-1)
+        prevcurr.next=prevcurr.next.next
+        curr=self.getelements(index)
+        curr.next=None
+    def insertAtIndex(self,value,index):
+        if index==0:
+            self.addElementFirst(value)
+        else:
+            new_node=Node(value)
+            prevcurr=self.getelements(index-1)
+            new_node.next=prevcurr.next # first new nodes next is updated to make sure nothing after prevcurr is left behind
+            prevcurr.next=new_node
 
 class Node:
     def __init__(self,value,next=None):
@@ -60,12 +84,10 @@ if __name__ == '__main__':
     ll.addElementFirst(8)
     ll.addElementLast(100)
     ll.addElementFirst(99)
+    ll.addElementFirst(11)
     ll.printelements()
-    print(ll.size)
-    ll.deleteFirst()
+    ll.deleteIndex(2)
     ll.printelements()
-    ll.deleteLast()
+    ll.insertAtIndex(9,1)
     ll.printelements()
-    print(ll.size)
-
 
