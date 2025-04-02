@@ -8,5 +8,5 @@ def recursiveBubblesort(arr,l,r):
     else:
         recursiveBubblesort(arr,0,r-1)
     return arr
-arr=[3,4,1,2]
+arr=[1,4,1,2]
 print(recursiveBubblesort(arr,0,len(arr)-1))
