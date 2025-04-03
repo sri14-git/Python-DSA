@@ -1,7 +1,3 @@
-from calendar import c
-from tempfile import tempdir
-
-
 class LinkedList:
     def __init__(self):
         self.head=None
@@ -47,7 +43,6 @@ class LinkedList:
         for i in range(index):
             temp=temp.next
         return temp
-
     def deleteLast(self):
         if self.head is not None: # to make sure there is elements
             prevlast=self.getelements(self.size-2)
@@ -68,22 +63,18 @@ class LinkedList:
                 return i
             temp=temp.next
         return None
-    # def ReverseList(self):
-    #     c=self.head
-    #     p=None
-    #     while c:
-    #         temp=c.next # to make sure we are not loosing the list
-    #         c.next=p
-    #         p=c #this contiunes and p becomes the head of the list
-    #         c=temp 
-    #     while p:
-    #             print(p.val,end="->")
-    #             p=p.next
-    #     print("END")
-
-
-
-
+    def ReverseList(self):
+        c=self.head
+        p=None
+        while c:
+            temp=c.next # to make sure we are not loosing the list
+            c.next=p
+            p=c #this contiunes and p becomes the head of the list
+            c=temp 
+        while p:
+                print(p.val,end="->")
+                p=p.next
+        print("END")
     def deleteIndex(self,index):
         prevcurr=self.getelements(index-1)
         prevcurr.next=prevcurr.next.next
