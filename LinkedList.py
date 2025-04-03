@@ -57,6 +57,15 @@ class LinkedList:
             self.tail=None
             self.size-=1
             return
+    def findvalue(self,value):
+        temp=self.head
+        for i in range(self.size-1):
+            if temp.val==value:
+                return i
+            temp=temp.next
+        return None
+            
+
     def deleteIndex(self,index):
         prevcurr=self.getelements(index-1)
         prevcurr.next=prevcurr.next.next
@@ -89,5 +98,8 @@ if __name__ == '__main__':
     ll.deleteIndex(2)
     ll.printelements()
     ll.insertAtIndex(9,1)
+    ll.addElementFirst(1000)
+    
     ll.printelements()
+    print(ll.findvalue(15))
 
