@@ -2,6 +2,7 @@
 
 
 from collections import Counter
+from operator import le
 
 
 s = " The quick brown fox "
@@ -26,7 +27,7 @@ s = " The quick brown fox "
 # res=[]
 # kpair=[]
 k=3
-arr=[1,7,11]
+arr=[1,1,2,7,11]
 # for i in range(len(arr)):
 #     for j in range(len(arr)):
 #         res.append([arr[i],arr[j]])
@@ -42,14 +43,17 @@ arr=[1,7,11]
 #         k-=1
 #     l+=1
 # print(kpair)
-import heapq
-heap=[]
-res=[]
-for i in range(len(arr)):
-    for j in range(i,len(arr)):
-        pair=(arr[i],arr[j])
-        heapq.heappush(heap,(sum(pair),[arr[i],arr[j]]))
-while k!=0 and len(heap)>=k:
-    res.append(heapq.heappop(heap)[1])
-    k-=1
-print(res)
+
+# import heapq
+# heap=[]
+# res=[]
+# for i in range(len(arr)):
+#     for j in range(i+1,len(arr)):
+#         pair=(arr[i],arr[j])
+#         heapq.heappush(heap,(sum(pair),[arr[i],arr[j]]))
+# print(heap)
+# while k!=0 and len(heap)>=k:
+#     res.append(heapq.heappop(heap)[1])
+#     k-=1
+
+# print(res)

@@ -1,4 +1,4 @@
-def partition(arr,low,high):
+def partition(arr,low,high): ##### with o(1) space complexity
     i=low
     j=high
     pivot=low
@@ -20,5 +20,11 @@ def qs(arr,low,high):
     return arr
 arr=[13,46,24,52,20,9]
 
-
+def quicks(arr):
+    if len(arr)<=1:
+        return arr
+    pivot=arr[0]
+    left=[i for i in arr[1:] if i<=pivot]
+    right=[x for x in arr[1:] if x>pivot]
+    return quicks(left)+[pivot]+quicks(right)
 print(qs(arr,0,len(arr)-1))
