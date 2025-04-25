@@ -1,3 +1,6 @@
+from traceback import print_tb
+
+
 class LinkedList:
     def __init__(self):
         self.head=None
@@ -11,7 +14,7 @@ class LinkedList:
             self.tail = node
         self.size+=1
     def addElementLast(self, value):
-        node = Node(value)  # Create a new node
+        node = Node(value) 
         if self.tail:  # If the list is not empty
             self.tail.next = node  # Append the new node at the tail
         else:  # If the list is empty
@@ -107,3 +110,17 @@ if __name__ == '__main__':
 
     ll.printelements()
 
+def binarySearch(arr,target):
+    l=0
+    h=len(arr)-1
+    while l<=h:
+        mid=l+(h-l)//2
+        if arr[mid]==target:
+            return mid
+        elif arr[mid]<target:
+            l=mid+1
+        else:
+            h=mid-1
+arr=[1,2,3,4,5,6,7,8,9]
+target=7
+print(binarySearch(arr,target))

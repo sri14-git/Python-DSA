@@ -52,8 +52,8 @@ def quicks(arr,l,h):
         quicks(arr,l,pivot-1)
         quicks(arr,pivot+1,h)
     return arr
-arr=[25,2,1,15,23,11]
-print(quicks(arr,0,len(arr)-1))
+# arr=[25,2,1,15,23,11]
+# print(quicks(arr,0,len(arr)-1))
 
 
 class LinkedList:
@@ -67,12 +67,36 @@ class LinkedList:
         self.head=new_node
         if self.tail is None:
             self.tail=new_node
+        self.size+=1
     def PrintElements(self) -> None:
         temp=self.head
         while temp:
-            print(temp.val,sep="->")
+            print(temp.val,end="->")
             temp=temp.next
-
+    def insertLast(self,value):
+        new_node=node(value)
+        if self.tail is None:
+            return self.insertFirst(value)
+        else:
+            self.tail.next=new_node
+            self.tail=new_node  
+        self.size+=1
+    def getelementsindex(self,value):
+        temp=self.head
+        for i in range(self.size):
+            if temp.val==value:
+                return i
+            temp=temp.next
+    def getelements(self,index):
+        temp=self.head
+        for i in range(index):
+            temp=temp.next
+        return temp
+    def deleteIndex(self,index):
+        prev=self.getelements(index-1)
+        prev.next=prev.next.next
+        curr=self.getelements(index)
+        curr.next=None
             
 class node:
     def __init__(self,value,next=None) -> None:
@@ -83,5 +107,10 @@ if __name__=='__main__':
     n= node(13)
     ll=LinkedList()
     ll.insertFirst(15)
+    ll.insertFirst(16)
+    ll.insertFirst(17)
+    ll.insertFirst(18)
     ll.PrintElements()
+    print(ll.getelementsindex(16))
+    
     
